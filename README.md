@@ -34,12 +34,13 @@ This portfolio is designed to provide a clean, modern, and interactive overview 
 - **Mobile-friendly:** Responsive layout optimized for tablets and phones
 
 ---
+## 🌐 Live Site
+
+👉 [Visit the Website](https://mr-shadowelite.github.io/)
 
 ## 📁 Project Structure
 
 - `index.html` — main webpage containing all sections and content
-- `styles.css` (if separated) — CSS styles for layout and effects
-- `script.js` (if separated) — JavaScript for interactivity and animations
 - `images/` — directory containing profile and project images
 - `README.md` — this file with project info and instructions
 
