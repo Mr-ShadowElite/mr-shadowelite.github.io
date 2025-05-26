@@ -5,124 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aravind Prabhakar A - Portfolio</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      text-align: center;
+      background-color: #f4f4f4;
     }
 
-    header {
-      background-image: url('images/cover%20pic.png');
+    .cover {
+      background: url('images/cover%20pic.png') no-repeat center center;
       background-size: cover;
-      background-position: center;
-      height: 250px;
-      color: white;
+      height: 100vh;
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      font-size: 2em;
-      font-weight: bold;
-    }
-
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin-top: -75px;
-      object-fit: cover;
-    }
-
-    main {
-      padding: 30px;
-    }
-
-    section {
-      margin-top: 40px;
-    }
-
-    .project {
-      background: white;
-      margin: 20px auto;
-      padding: 15px;
-      max-width: 700px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007acc;
+      padding: 40px;
       color: white;
-      border-radius: 5px;
-      text-decoration: none;
     }
 
-    .button:hover {
-      background-color: #005fa3;
+    .left, .right {
+      flex: 1;
+      padding: 20px;
     }
 
-    a {
-      color: #007acc;
-      text-decoration: none;
+    .left {
+      text-align: left;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .left img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .left h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    .left p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    .right {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .right h3 {
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    .right p {
+      font-size: 1em;
+      line-height: 1.6;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .cover {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .left, .right {
+        padding: 10px;
+      }
+
+      .right {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    Aravind Prabhakar A
-  </header>
-
-  <img src="images/ARAVIND.jpg" alt="Profile Photo" class="profile-pic" />
-
-  <main>
-
-    <section>
-      <h2>About Me</h2>
-      <p>Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.<br>
-         Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision<br>
-         to data-driven problem-solving. Actively looking for a Data Analyst role.</p>
-      <p>📍 Kerala, India | 📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
-         🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
+  <section class="cover">
+    <!-- Left: Photo and Role -->
+    <div class="left">
+      <img src="images/ARAVIND.jpg" alt="Profile Photo">
+      <h2>Aravind Prabhakar A</h2>
+      <p>
+        Data Analyst | Penetration Tester<br>
+        Cybersecurity Enthusiast and Learner<br>
+        SQL | Python | C Programming | PySpark
       </p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Cover Letter</h2>
-      <a class="button" href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank">View My Cover Letter</a>
-    </section>
+    <!-- Right: Summary -->
+    <div class="right">
+      <h3>About Me</h3>
+      <p>
+        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.<br>
+        Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
+        to data-driven problem-solving. Actively looking for a Data Analyst role.
+      </p>
+    </div>
+  </section>
 
-    <section>
-      <h2>Projects</h2>
-
-      <div class="project">
-        <h3>SQL Data Warehouse Project</h3>
-        <p>Built a modern data warehouse with SQL Server. Created ETL pipelines and performed analytics for business insights.</p>
-        <a class="button" href="https://github.com/Mr-ShadowElite/Sql-data-warehouse-projects" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="project">
-        <h3>Excel Dashboard – Blinkit Sales</h3>
-        <p>Developed an interactive Excel dashboard analyzing Blinkit's sales performance and revenue patterns.</p>
-        <a class="button" href="https://github.com/Mr-ShadowElite/EXCEL-PROJECTS" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="project">
-        <h3>Python Data Analysis – Blinkit</h3>
-        <p>Analyzed grocery sales data with Python using Pandas, Seaborn, and Matplotlib to visualize product trends and customer behavior.</p>
-        <a class="button" href="https://github.com/Mr-ShadowElite/PYTHON_PROJECTS/tree/main/Data_Analysis_using_Python" target="_blank">View on GitHub</a>
-      </div>
-
-    </section>
-
-  </main>
 </body>
 </html>
