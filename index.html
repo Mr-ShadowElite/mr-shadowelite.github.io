@@ -20,7 +20,7 @@
       overflow-x: hidden;
     }
 
-    /* Cover section with only background image */
+    /* COVER styles */
     .cover {
       background: url('images/cover%20pic.png') no-repeat center center;
       background-size: cover;
@@ -32,59 +32,116 @@
       z-index: 10;
       transition: all 0.5s ease;
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 30px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 60px;
+      pointer-events: auto; /* full screen, block interaction behind */
     }
 
-    /* Shrinked cover becomes a small banner */
+    /* Shrinked cover as banner on scroll */
     .cover.shrink {
       height: 80px;
       background-position: left center;
       background-size: contain;
       padding: 10px 40px;
+      flex-direction: row;
       align-items: center;
       justify-content: flex-start;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
       border-bottom: 1px solid #007acc;
-      z-index: 20;
+      pointer-events: none; /* allow clicks/scroll to go through */
     }
 
-    /* Scroll arrow */
+    /* Hide all inside cover except image and name when shrunk */
+    .cover.shrink .intro-left p,
+    .cover.shrink .tagline,
+    .cover.shrink .scroll-down {
+      display: none;
+    }
+
+    .cover.shrink .intro-left {
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+    }
+
+    .intro-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      z-index: 3;
+      color: white;
+    }
+
+    .intro-left img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #007acc;
+      margin-bottom: 20px;
+      transition: width 0.5s ease, height 0.5s ease, margin 0.5s ease;
+    }
+
+    /* Shrink profile pic */
+    .cover.shrink .intro-left img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0;
+      border-width: 2px;
+    }
+
+    .intro-left h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      transition: font-size 0.5s ease;
+    }
+
+    .cover.shrink .intro-left h2 {
+      font-size: 1.2em;
+      margin-bottom: 0;
+      color: #007acc;
+    }
+
+    .intro-left p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+
+    .tagline {
+      font-size: 1em;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      max-width: 90%;
+      margin: auto auto 20px auto;
+      border-radius: 8px;
+      text-align: center;
+      z-index: 3;
+    }
+
     .scroll-down {
-      font-size: 2.5em;
+      font-size: 2em;
       color: white;
       cursor: pointer;
+      text-align: center;
       user-select: none;
-      transition: transform 0.3s ease;
-      animation: bounce 2s infinite;
-      text-shadow: 0 0 5px #007acc;
+      z-index: 3;
     }
 
-    .scroll-down:hover {
-      transform: translateY(10px);
-      color: #00aaff;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(10px);
-      }
-    }
-
-    /* Main content starts below the fixed cover */
+    /* Main content below cover */
     .main-content {
       padding-top: 100vh;
+      min-height: 150vh; /* enough height for scrolling */
       position: relative;
       z-index: 1;
       background-color: #000;
-      min-height: 100vh;
+      color: #eee;
     }
 
-    /* Container with fade-in effect */
     .container {
       display: flex;
       flex-direction: row;
@@ -106,6 +163,7 @@
     .left {
       width: 300px;
       text-align: left;
+      color: #ccc;
     }
 
     .left img {
@@ -114,14 +172,13 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #007acc;
-      display: block;
-      margin-bottom: 15px;
     }
 
     .left h2 {
       font-size: 1.5em;
+      margin-top: 15px;
       margin-bottom: 10px;
-      color: #007acc;
+      color: white;
     }
 
     .left p {
@@ -141,20 +198,18 @@
     .right h3 {
       font-size: 1.4em;
       margin-bottom: 10px;
-      color: #00aaff;
+      color: #007acc;
     }
 
     .right p {
       font-size: 1em;
       line-height: 1.6;
       color: #eee;
-      margin-bottom: 15px;
     }
 
     .contact a {
       text-decoration: none;
       color: #1da1f2;
-      word-break: break-word;
     }
 
     .button {
@@ -173,27 +228,29 @@
     }
 
     @media (max-width: 768px) {
+      .cover {
+        padding: 30px;
+        justify-content: center;
+      }
+
+      .intro-left, .container {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
+
+      .intro-left {
+        align-items: center;
+      }
+
       .container {
         flex-direction: column;
         padding: 30px 20px;
-        gap: 30px;
       }
 
       .left {
-        width: 100%;
         text-align: center;
-      }
-
-      .left img {
-        margin: 0 auto 15px auto;
-      }
-
-      .right {
-        padding: 20px;
-      }
-
-      .cover.shrink {
-        padding: 10px 20px;
+        width: 100%;
       }
     }
   </style>
@@ -201,16 +258,28 @@
 <body>
 
   <div class="cover" id="cover">
-    <div class="scroll-down" title="Scroll Down" onclick="document.getElementById('profile-container').scrollIntoView({ behavior: 'smooth' })">&#8675;</div>
+    <div class="intro-left">
+      <img src="images/ARAVIND.jpg" alt="Profile Photo" />
+      <h2>Aravind Prabhakar A</h2>
+      <p><strong>Data Analyst | Penetration Tester<br />
+          Cybersecurity Enthusiast and Learner</strong><br />
+        SQL | Python | C Programming | PySpark
+      </p>
+    </div>
+    <div class="tagline">
+      Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills. Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision to data-driven problem-solving.<br />
+      <em>DATA SPEAKS, I LISTEN — AND PROTECT<br />— MR.SHADOW_ELITE</em>
+    </div>
+    <div class="scroll-down" onclick="document.getElementById('profile-container').scrollIntoView({ behavior: 'smooth' })">&#8675;</div>
   </div>
 
   <div class="main-content">
     <div class="container" id="profile-container">
       <div class="left">
-        <img src="images/ARAVIND.jpg" alt="Profile Photo">
+        <img src="images/ARAVIND.jpg" alt="Profile Photo" />
         <h2>MR.SHADOW_ELITE</h2>
-        <p><strong>Data Analyst | Civil Engineer<br>
-        SQL | Python | Excel | Data Visualization</strong></p>
+        <p><strong>Data Analyst | Civil Engineer<br />
+            SQL | Python | Excel | Data Visualization</strong></p>
       </div>
       <div class="right">
         <h3>About Me</h3>
@@ -220,47 +289,35 @@
           to data-driven problem-solving. Actively looking for a Data Analyst role.
         </p>
         <p class="contact">
-          📍 Kerala, India<br>
-          📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
+          📍 Kerala, India<br />
+          📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br />
           🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
 
         <h3>Cover Letter</h3>
-        <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button" rel="noopener noreferrer">View My Cover Letter</a>
+        <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View My Cover Letter</a>
       </div>
     </div>
   </div>
 
-<script>
-  window.addEventListener('scroll', () => {
-    const cover = document.getElementById('cover');
-    if (window.scrollY > 100) {
-      document.body.classList.add('scrolled');
-      cover.classList.add('shrink');
-    } else {
-      document.body.classList.remove('scrolled');
-      cover.classList.remove('shrink');
-    }
+  <script>
+    window.addEventListener('scroll', () => {
+      const cover = document.getElementById('cover');
+      if (window.scrollY > 100) {
+        cover.classList.add('shrink');
+      } else {
+        cover.classList.remove('shrink');
+      }
 
-    const container = document.getElementById('profile-container');
-    const revealPoint = 100;
-    const containerTop = container.getBoundingClientRect().top;
+      const container = document.getElementById('profile-container');
+      const revealPoint = 150;
+      const containerTop = container.getBoundingClientRect().top;
 
-    if (containerTop < window.innerHeight - revealPoint) {
-      container.classList.add('show');
-    }
-  });
-
-  // Optionally, reveal content if already scrolled on page load
-  window.addEventListener('load', () => {
-    const container = document.getElementById('profile-container');
-    const revealPoint = 100;
-    const containerTop = container.getBoundingClientRect().top;
-    if (containerTop < window.innerHeight - revealPoint) {
-      container.classList.add('show');
-    }
-  });
-</script>
+      if (containerTop < window.innerHeight - revealPoint) {
+        container.classList.add('show');
+      }
+    });
+  </script>
 
 </body>
 </html>
