@@ -14,310 +14,96 @@
     html, body {
       scroll-behavior: smooth;
       background-color: #000;
-      color: white;
       font-family: Arial, sans-serif;
       height: 100%;
       overflow-x: hidden;
     }
 
-    /* COVER styles */
-    .cover {
-      background: url('images/cover%20pic.png') no-repeat center center;
-      background-size: cover;
+    section {
       height: 100vh;
       width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10;
-      transition: all 0.5s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 60px;
-      pointer-events: auto; /* full screen, block interaction behind */
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
 
-    /* Shrinked cover as banner on scroll */
-    .cover.shrink {
-      height: 80px;
-      background-position: left center;
-      background-size: contain;
-      padding: 10px 40px;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-      border-bottom: 1px solid #007acc;
-      pointer-events: none; /* allow clicks/scroll to go through */
+    #landing {
+      background-image: url('images/1.jpg');
     }
 
-    /* Hide all inside cover except image and name when shrunk */
-    .cover.shrink .intro-left p,
-    .cover.shrink .tagline,
-    .cover.shrink .scroll-down {
-      display: none;
+    #details {
+      background-image: url('images/second%20page.png');
     }
 
-    .cover.shrink .intro-left {
-      flex-direction: row;
-      align-items: center;
-      gap: 15px;
-      text-align: left;
+    #final {
+      background-image: url('images/Screenshot%202025-05-26%20102132.png');
     }
 
-    .intro-left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      z-index: 3;
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: white;
-    }
-
-    .intro-left img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #007acc;
-      margin-bottom: 20px;
-      transition: width 0.5s ease, height 0.5s ease, margin 0.5s ease;
-    }
-
-    /* Shrink profile pic */
-    .cover.shrink .intro-left img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 0;
-      border-width: 2px;
-    }
-
-    .intro-left h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-      transition: font-size 0.5s ease;
-    }
-
-    .cover.shrink .intro-left h2 {
-      font-size: 1.2em;
-      margin-bottom: 0;
-      color: #007acc;
-    }
-
-    .intro-left p {
-      font-size: 1.1em;
-      line-height: 1.6;
-      max-width: 400px;
-    }
-
-    .tagline {
-      font-size: 1em;
-      font-weight: bold;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
-      max-width: 90%;
-      margin: auto auto 20px auto;
-      border-radius: 8px;
       text-align: center;
-      z-index: 3;
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    .scroll-down {
+    .visible {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    /* Smooth scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 2em;
       color: white;
       cursor: pointer;
-      text-align: center;
-      user-select: none;
-      z-index: 3;
-    }
-
-    /* Main content below cover */
-    .main-content {
-      padding-top: 100vh;
-      min-height: 150vh; /* enough height for scrolling */
-      position: relative;
-      z-index: 1;
-      background-color: #000;
-      color: #eee;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: row;
-      padding: 60px;
-      align-items: flex-start;
-      gap: 40px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .container.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .left {
-      width: 300px;
-      text-align: left;
-      color: #ccc;
-    }
-
-    .left img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #007acc;
-    }
-
-    .left h2 {
-      font-size: 1.5em;
-      margin-top: 15px;
-      margin-bottom: 10px;
-      color: white;
-    }
-
-    .left p {
-      font-size: 0.95em;
-      line-height: 1.5;
-      color: #ccc;
-    }
-
-    .right {
-      flex: 1;
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
-    }
-
-    .right h3 {
-      font-size: 1.4em;
-      margin-bottom: 10px;
-      color: #007acc;
-    }
-
-    .right p {
-      font-size: 1em;
-      line-height: 1.6;
-      color: #eee;
-    }
-
-    .contact a {
-      text-decoration: none;
-      color: #1da1f2;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #007acc;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #005f99;
-    }
-
-    @media (max-width: 768px) {
-      .cover {
-        padding: 30px;
-        justify-content: center;
-      }
-
-      .intro-left, .container {
-        width: 100%;
-        text-align: center;
-        align-items: center;
-      }
-
-      .intro-left {
-        align-items: center;
-      }
-
-      .container {
-        flex-direction: column;
-        padding: 30px 20px;
-      }
-
-      .left {
-        text-align: center;
-        width: 100%;
-      }
     }
   </style>
 </head>
 <body>
-
-  <div class="cover" id="cover">
-    <div class="intro-left">
-      <img src="images/ARAVIND.jpg" alt="Profile Photo" />
-      <h2>Aravind Prabhakar A</h2>
-      <p><strong>Data Analyst | Penetration Tester<br />
-          Cybersecurity Enthusiast and Learner</strong><br />
-        SQL | Python | C Programming | PySpark
-      </p>
+  <section id="landing">
+    <div class="content visible">
+      <!-- Optional: Landing text or nothing, just the background image -->
     </div>
-    <div class="tagline">
-      Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills. Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision to data-driven problem-solving.<br />
-      <em>DATA SPEAKS, I LISTEN — AND PROTECT<br />— MR.SHADOW_ELITE</em>
+    <div class="scroll-indicator" onclick="document.getElementById('details').scrollIntoView({ behavior: 'smooth' })">
+      &#8675;
     </div>
-    <div class="scroll-down" onclick="document.getElementById('profile-container').scrollIntoView({ behavior: 'smooth' })">&#8675;</div>
-  </div>
+  </section>
 
-  <div class="main-content">
-    <div class="container" id="profile-container">
-      <div class="left">
-        <img src="images/ARAVIND.jpg" alt="Profile Photo" />
-        <h2>MR.SHADOW_ELITE</h2>
-        <p><strong>Data Analyst | Civil Engineer<br />
-            SQL | Python | Excel | Data Visualization</strong></p>
-      </div>
-      <div class="right">
-        <h3>About Me</h3>
-        <p>
-          Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.
-          Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
-          to data-driven problem-solving. Actively looking for a Data Analyst role.
-        </p>
-        <p class="contact">
-          📍 Kerala, India<br />
-          📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br />
-          🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
-
-        <h3>Cover Letter</h3>
-        <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="button">View My Cover Letter</a>
-      </div>
+  <section id="details">
+    <div class="content" id="details-content">
+      <h2>MR.SHADOW_ELITE</h2>
+      <p>Data Analyst | Civil Engineer<br>SQL | Python | Excel | Data Visualization</p>
     </div>
-  </div>
+  </section>
+
+  <section id="final">
+    <div class="content" id="final-content">
+      <h3>Aravind Prabhakar A</h3>
+      <p>Cybersecurity Enthusiast and Learner<br>DATA SPEAKS, I LISTEN — AND PROTECT</p>
+    </div>
+  </section>
 
   <script>
+    function revealOnScroll(id) {
+      const elem = document.getElementById(id);
+      const rect = elem.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        elem.classList.add('visible');
+      }
+    }
+
     window.addEventListener('scroll', () => {
-      const cover = document.getElementById('cover');
-      if (window.scrollY > 100) {
-        cover.classList.add('shrink');
-      } else {
-        cover.classList.remove('shrink');
-      }
-
-      const container = document.getElementById('profile-container');
-      const revealPoint = 150;
-      const containerTop = container.getBoundingClientRect().top;
-
-      if (containerTop < window.innerHeight - revealPoint) {
-        container.classList.add('show');
-      }
+      revealOnScroll('details-content');
+      revealOnScroll('final-content');
     });
   </script>
-
 </body>
 </html>
