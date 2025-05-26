@@ -244,3 +244,16 @@
         profile.classList.add('show');
       }
       if (scrollY > 600) {
+        about.classList.add('show');
+      }
+      if (scrollY > 800) {
+        banner.style.display = 'flex';
+        banner.classList.add('shrink');
+      } else {
+        banner.style.display = 'none';
+        banner.classList.remove('shrink');
+      }
+    });
+  </script>
+</body>
+</html>
