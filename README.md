@@ -53,10 +53,24 @@ This portfolio is designed to provide a clean, modern, and interactive overview 
 4. On hover or keyboard focus, project cards will flip to reveal details
 
 ---
+# 🖼️ Project Screenshots
 
-## 🎵 Background Music (Optional)
+### 💡 LANDING PAGE
 
-You can add background music by embedding an audio player or using JavaScript, but be sure to choose royalty-free or non-copyright music.
+![LANDING PAGE](https://github.com/Mr-ShadowElite/mr-shadowelite.github.io/blob/main/images/landing%20page.png)
+
+### 📊 SECOND PAGE
+
+![SECOND PAGE](https://github.com/Mr-ShadowElite/mr-shadowelite.github.io/blob/main/images/2nd%20page.png)
+
+### 🔐 PROJECT SECTION
+
+![PROJECT SECTION ](https://github.com/Mr-ShadowElite/mr-shadowelite.github.io/blob/main/images/3rd%20page.png)
+
+### 🔐 FLIPPING THE CARD
+
+![FLIPPING THE CARD](https://github.com/Mr-ShadowElite/mr-shadowelite.github.io/blob/main/images/flipping%20cards%204th.png)
+
 
 ---
 
