@@ -1,192 +1,272 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mr. Shadow Elite - Portfolio</title>
-<style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body, html {
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background: url('https://raw.githubusercontent.com/Mr-ShadowElite/mr-shadowelite.github.io/main/images/cover%20pic.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-  }
-  main {
-    min-height: 200vh;
-    padding-top: 100vh;
-  }
-  #profile-section {
-    position: fixed;
-    top: 30vh;
-    left: 30px;
-    max-width: 320px;
-    background: transparent;    /* Transparent background */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: none;           /* Remove shadow if you want */
-    opacity: 0;
-    transform: translateX(-100px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    z-index: 10;
-    color: white;               /* White text */
-    text-shadow: 0 0 8px rgba(0,0,0,0.7); /* Optional shadow for readability */
-  }
-  #profile-section.show {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  #profile-section img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #00bfff;
-    object-fit: cover;
-    margin-bottom: 15px;
-    display: block;
-  }
-  #profile-section .name {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #00bfff;
-  }
-  #profile-section .details {
-    font-size: 1rem;
-    line-height: 1.4;
-    color: #cceeff;
-  }
-  #about-section {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 600px;
-    background: transparent;    /* Transparent background */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: none;           /* Remove shadow if you want */
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: 10;
-    color: #00bfff;
-  }
-  #about-section.show {
-    opacity: 1;
-  }
-  #about-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    color: #00bfff;
-  }
-  #about-section p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #ccddff;
-  }
-  #banner {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: 70px;
-    background: rgba(0,0,0,0.85);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 0 20px;
-    color: #00bfff;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
-    z-index: 9999;
-  }
-  #banner.show {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  #banner img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #00bfff;
-    object-fit: cover;
-  }
-  #banner .info {
-    display: flex;
-    flex-direction: column;
-  }
-  #banner .info .name {
-    font-size: 1.1rem;
-  }
-  #banner .info .title {
-    font-size: 0.8rem;
-    color: #ccc;
-  }
-  #projects-section {
-    padding: 60px 20px;
-    margin-top: 100vh;
-    background: #121212;
-    min-height: 100vh;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s ease;
-    color: #eee;
-  }
-  #projects-section.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  #projects-section h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #00bfff;
-  }
-  #projects-section .placeholder {
-    color: #888;
-    font-size: 1rem;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARAVIND PRABHAKAR A (Mr. Shadow Elite) - Portfolio</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: url('https://raw.githubusercontent.com/Mr-ShadowElite/mr-shadowelite.github.io/main/images/cover%20pic.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    main {
+      min-height: 200vh;
+      padding-top: 100vh;
+    }
+    #profile-section {
+      position: fixed;
+      top: 30vh;
+      left: 30px;
+      max-width: 320px;
+      background: transparent;
+      border-radius: 10px;
+      padding: 20px;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      z-index: 10;
+      color: white;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+    #profile-section.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    #profile-section img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #00bfff;
+      object-fit: cover;
+      margin-bottom: 15px;
+      display: block;
+    }
+    #profile-section .name {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #00bfff;
+    }
+    #profile-section .details {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #cceeff;
+    }
+    #about-section {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 600px;
+      background: transparent;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 10;
+      color: #00bfff;
+    }
+    #about-section.show {
+      opacity: 1;
+    }
+    #about-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #00bfff;
+    }
+    #about-section p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #ccddff;
+    }
+    #banner {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 90px;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 0 30px;
+      color: #00bfff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      z-index: 9999;
+    }
+    #banner.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #banner img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid #00bfff;
+      object-fit: cover;
+    }
+    #banner .info {
+      display: flex;
+      flex-direction: column;
+    }
+    #projects-section {
+      padding: 130px 20px 60px;
+      margin-top: 100vh;
+      background: rgba(18, 18, 18, 0.98);
+      min-height: 100vh;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+      color: #eee;
+      position: relative;
+      z-index: 2;
+    }
+    #projects-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #projects-section h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #00bfff;
+      position: sticky;
+      top: 90px;
+      background: rgba(18, 18, 18, 0.98);
+      padding: 10px 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+    }
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      perspective: 1500px;
+    }
+    .project-card {
+      width: 220px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      box-shadow: 0 6px 12px rgba(0,191,255,0.3), 0 12px 24px rgba(0,0,0,0.5);
+      border-radius: 15px;
+      background: linear-gradient(145deg, #0a0f3f, #00184f);
+      user-select: none;
+    }
+    .project-card.flipped {
+      transform: rotateY(180deg);
+    }
+    .project-card .front, .project-card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px 20px;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+    .project-card .front {
+      background: linear-gradient(135deg, #004080 0%, #001f3f 100%);
+      color: #00bfff;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-shadow: 0 0 8px rgba(0,191,255,0.8);
+    }
+    .project-card .back {
+      background: linear-gradient(135deg, #001f3f 0%, #004080 100%);
+      color: #cceeff;
+      transform: rotateY(180deg);
+      font-weight: 400;
+      font-size: 1rem;
+      box-shadow: inset 0 0 20px rgba(0, 0, 50, 0.9);
+    }
+    @media only screen and (max-width: 768px) {
+      .cards-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .project-card {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <div id="banner" role="banner" aria-label="Site Banner">
-    <img src="https://raw.githubusercontent.com/Mr-ShadowElite/mr-shadowelite.github.io/main/images/ARAVIND.jpg" alt="Profile Picture" />
-    <div class="info">
-      <div class="name">Aravind Prabhakar A</div>
-      <div class="title">Data Analyst | Pen Tester</div>
-    </div>
+<div id="banner">
+  <img src="https://raw.githubusercontent.com/Mr-ShadowElite/mr-shadowelite.github.io/main/images/ARAVIND.jpg" alt="Profile" />
+  <div class="info">
+    <div class="name">Aravind Prabhakar A</div>
+    <div class="title">Data Analyst | Certified Pen. Tester<br/>Civil Engineer | Cybersecurity Enthusiast</div>
   </div>
+</div>
 
-  <main>
-    <section id="profile-section" aria-label="Profile Information">
-      <img src="https://raw.githubusercontent.com/Mr-ShadowElite/mr-shadowelite.github.io/main/images/ARAVIND.jpg" alt="Aravind Prabhakar A" />
-      <div class="name">Aravind Prabhakar A (Mr.Shadow_Elite)</div>
-      <div class="details">
-        He/Him<br />
-        Data Analyst | Penetration Tester | Cybersecurity Enthusiast and Learner<br />
-        SQL | Python | C programming | PySpark
+<main>
+  <section id="profile-section">
+    <img src="https://raw.githubusercontent.com/Mr-ShadowElite/mr-shadowelite.github.io/main/images/ARAVIND.jpg" alt="Aravind Prabhakar A" />
+    <div class="name">Aravind Prabhakar A (Mr.Shadow_Elite)</div>
+    <div class="details">
+      He/Him<br />
+      Data Analyst | Certified Pen. Tester | Civil Engineer<br />
+      SQL | Python | C programming | PySpark | Power BI | Excel | Tableau
+    </div>
+  </section>
+
+  <section id="about-section">
+    <h2>About Me</h2>
+    <p>
+      Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills. Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision to data-driven problem-solving.
+    </p>
+  </section>
+
+  <section id="projects-section">
+    <h2>Projects</h2>
+    <div class="cards-container">
+      <div class="project-card">
+        <div class="front">Project Alpha</div>
+        <div class="back">Interactive dashboard with charts and filters.</div>
       </div>
-    </section>
-
-    <section id="about-section" aria-label="About Me">
-      <h2>About Me</h2>
-      <p>
-        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills. Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision to data-driven problem-solving. Actively looking for a Data Analyst role.
-      </p>
-    </section>
-
-    <section id="projects-section" aria-label="Projects">
-      <h2>Projects</h2>
-      <div class="placeholder">[Your projects will appear here]</div>
-    </section>
-  </main>
+      <div class="project-card">
+        <div class="front">Project Beta</div>
+        <div class="back">ML model predicting customer churn with 85% accuracy.</div>
+      </div>
+      <div class="project-card">
+        <div class="front">Project Gamma</div>
+        <div class="back">Automated web app security testing tool.</div>
+      </div>
+      <div class="project-card">
+        <div class="front">Project Delta</div>
+        <div class="back">SQL optimization tool for performance improvement.</div>
+      </div>
+      <div class="project-card">
+        <div class="front">Project Epsilon</div>
+        <div class="back">Real-time data pipeline using PySpark.</div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <script>
   const profile = document.getElementById('profile-section');
@@ -198,33 +278,16 @@
     const scrollY = window.scrollY;
     const projectsTop = projectsSection.offsetTop;
 
-    // Show profile between scroll 50 and projectsTop-300
-    if (scrollY > 50 && scrollY < projectsTop - 300) {
-      profile.classList.add('show');
-    } else {
-      profile.classList.remove('show');
-    }
+    profile.classList.toggle('show', scrollY > 50 && scrollY < projectsTop - 300);
+    about.classList.toggle('show', scrollY > 200 && scrollY < projectsTop - 250);
+    banner.classList.toggle('show', scrollY >= projectsTop - 300);
+    projectsSection.classList.toggle('show', scrollY > projectsTop - 150);
+  });
 
-    // Show about section between 200 and projectsTop - 250
-    if (scrollY > 200 && scrollY < projectsTop - 250) {
-      about.classList.add('show');
-    } else {
-      about.classList.remove('show');
-    }
-
-    // Show banner ONLY AFTER profile disappears
-    if (scrollY >= projectsTop - 300) {
-      banner.classList.add('show');
-    } else {
-      banner.classList.remove('show');
-    }
-
-    // Show projects section once user scrolls near it
-    if (scrollY > projectsTop - 150) {
-      projectsSection.classList.add('show');
-    } else {
-      projectsSection.classList.remove('show');
-    }
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
   });
 </script>
 
