@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Scroll Switch Portfolio</title>
+  <title>MR.SHADOW_ELITE - Portfolio</title>
   <style>
     * {
       margin: 0;
@@ -15,7 +15,7 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       color: #333;
-      min-height: 150vh; /* Enough height to allow scrolling */
+      min-height: 150vh; /* Enough height for scrolling */
     }
 
     .cover {
@@ -30,7 +30,7 @@
       padding: 40px;
       align-items: flex-start;
       gap: 40px;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.3s ease;
     }
 
     .left {
@@ -115,11 +115,10 @@
 
   <!-- Profile & Info Container -->
   <div class="container" id="profile-container">
-    <!-- Content will be inserted here by JS -->
+    <!-- JS will inject content here -->
   </div>
 
 <script>
-  // Data for two versions:
   const version1 = `
     <div class="left">
       <img src="images/ARAVIND.jpg" alt="Profile Photo">
@@ -174,9 +173,7 @@
   `;
 
   const container = document.getElementById('profile-container');
-
-  // Start with version1:
-  container.innerHTML = version1;
+  container.innerHTML = version1; // start with version1
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY || window.pageYOffset;
