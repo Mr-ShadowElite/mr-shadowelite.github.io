@@ -22,16 +22,19 @@
       background: url('images/cover%20pic.png') no-repeat center center;
       background-size: cover;
       height: 100vh;
-      position: relative;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 40px 60px;
-      transition: height 0.6s ease;
+      z-index: 1;
+      transition: all 0.5s ease;
+      position: relative;
     }
 
     body.scrolled .cover {
-      height: 200px;
+      height: 300px;
+      padding: 20px 40px;
     }
 
     .intro-left {
@@ -39,6 +42,7 @@
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
+      z-index: 3;
     }
 
     .intro-left img {
@@ -69,14 +73,21 @@
       margin: auto auto 20px auto;
       border-radius: 8px;
       text-align: center;
+      z-index: 3;
     }
 
     .scroll-down {
       font-size: 2em;
       color: white;
       cursor: pointer;
-      margin-top: 10px;
       text-align: center;
+    }
+
+    .main-content {
+      padding-top: 100vh;
+      position: relative;
+      z-index: 2;
+      background-color: black;
     }
 
     .container {
@@ -198,28 +209,30 @@
     <div class="scroll-down" onclick="document.getElementById('profile-container').scrollIntoView({ behavior: 'smooth' })">&#8675;</div>
   </div>
 
-  <div class="container" id="profile-container">
-    <div class="left">
-      <img src="images/ARAVIND.jpg" alt="Profile Photo">
-      <h2>MR.SHADOW_ELITE</h2>
-      <p><strong>Data Analyst | Civil Engineer<br>
-      SQL | Python | Excel | Data Visualization</strong></p>
-    </div>
-    <div class="right">
-      <h3>About Me</h3>
-      <p>
-        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.
-        Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
-        to data-driven problem-solving. Actively looking for a Data Analyst role.
-      </p>
-      <p class="contact">
-        📍 Kerala, India<br>
-        📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
-        🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
-      </p>
+  <div class="main-content">
+    <div class="container" id="profile-container">
+      <div class="left">
+        <img src="images/ARAVIND.jpg" alt="Profile Photo">
+        <h2>MR.SHADOW_ELITE</h2>
+        <p><strong>Data Analyst | Civil Engineer<br>
+        SQL | Python | Excel | Data Visualization</strong></p>
+      </div>
+      <div class="right">
+        <h3>About Me</h3>
+        <p>
+          Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.
+          Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
+          to data-driven problem-solving. Actively looking for a Data Analyst role.
+        </p>
+        <p class="contact">
+          📍 Kerala, India<br>
+          📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
+          🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
+        </p>
 
-      <h3>Cover Letter</h3>
-      <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button">View My Cover Letter</a>
+        <h3>Cover Letter</h3>
+        <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button">View My Cover Letter</a>
+      </div>
     </div>
   </div>
 
