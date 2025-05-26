@@ -14,106 +14,130 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
+      color: #333;
     }
 
     .cover {
       background: url('images/cover%20pic.png') no-repeat center center;
       background-size: cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      color: white;
+      height: 300px;
     }
 
-    .left, .right {
-      flex: 1;
-      padding: 20px;
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      align-items: flex-start;
+      gap: 40px;
     }
 
     .left {
+      width: 300px;
       text-align: left;
     }
 
     .left img {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      border: 3px solid white;
       object-fit: cover;
-      margin-bottom: 15px;
+      border: 4px solid #007acc;
     }
 
     .left h2 {
-      font-size: 1.8em;
+      font-size: 1.5em;
+      margin-top: 15px;
       margin-bottom: 10px;
     }
 
     .left p {
-      font-size: 1em;
+      font-size: 0.95em;
       line-height: 1.5;
+      color: #444;
     }
 
     .right {
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.4);
+      flex: 1;
+      background: white;
       padding: 30px;
       border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     .right h3 {
-      font-size: 1.6em;
-      margin-bottom: 15px;
+      font-size: 1.4em;
+      margin-bottom: 10px;
     }
 
     .right p {
       font-size: 1em;
       line-height: 1.6;
-      color: #fff;
+    }
+
+    .contact a {
+      text-decoration: none;
+      color: #007acc;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
     }
 
     @media (max-width: 768px) {
-      .cover {
+      .container {
         flex-direction: column;
+        align-items: center;
         text-align: center;
       }
 
       .left, .right {
-        padding: 10px;
+        width: 100%;
       }
 
-      .right {
-        background-color: rgba(0, 0, 0, 0.5);
+      .left {
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="cover">
-    <!-- Left: Photo and Role -->
+  <!-- Full Cover Banner -->
+  <div class="cover"></div>
+
+  <!-- Profile & Info -->
+  <div class="container">
     <div class="left">
       <img src="images/ARAVIND.jpg" alt="Profile Photo">
       <h2>Aravind Prabhakar A</h2>
-      <p>
-        Data Analyst | Penetration Tester<br>
-        Cybersecurity Enthusiast and Learner<br>
-        SQL | Python | C Programming | PySpark
-      </p>
+      <p><strong>Data Analyst | Penetration Tester<br>
+      Cybersecurity Enthusiast and Learner</strong><br>
+      SQL | Python | C Programming | PySpark</p>
     </div>
 
-    <!-- Right: Summary -->
     <div class="right">
       <h3>About Me</h3>
       <p>
-        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.<br>
+        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.
         Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
         to data-driven problem-solving. Actively looking for a Data Analyst role.
       </p>
+      <p class="contact">
+        📍 Kerala, India<br>
+        📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
+        🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
+      </p>
+
+      <h3>Cover Letter</h3>
+      <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button">View My Cover Letter</a>
     </div>
-  </section>
+  </div>
 
 </body>
 </html>
