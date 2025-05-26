@@ -2,107 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MR.SHADOW_ELITE - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aravind's Portfolio</title>
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f0f0f;
+      color: white;
       scroll-behavior: smooth;
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      height: 100%;
-      overflow-x: hidden;
     }
 
-    section {
+    /* Cover Section */
+    .cover {
+      background: url('images/cover.png') no-repeat center center/cover;
       height: 100vh;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      position: relative;
+      transition: height 1s ease;
     }
 
-    #landing {
-      background-image: url('images/1.jpg');
+    .cover.shrink {
+      height: 200px;
     }
 
-    #details {
-      background-image: url('images/second%20page.png');
-    }
-
-    #final {
-      background-image: url('images/Screenshot%202025-05-26%20102132.png');
-    }
-
-    .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
+    /* Section Animations */
+    .fade-section {
       opacity: 0;
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(60px);
+      transition: all 1s ease;
     }
 
-    .visible {
+    .fade-section.show {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translateY(0);
     }
 
-    /* Smooth scroll indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2em;
-      color: white;
-      cursor: pointer;
+    /* Intro */
+    .intro-section {
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .intro-section img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid #007acc;
+    }
+
+    .intro-section h1 {
+      margin-top: 20px;
+      font-size: 32px;
+    }
+
+    .intro-section p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    /* About */
+    .about-section {
+      padding: 60px;
+      background-color: #1a1a1a;
+    }
+
+    .about-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* Banner Layout */
+    .banner-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1c1c1c;
+      padding: 30px 60px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .banner-layout.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .profile-left img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #007acc;
+    }
+
+    .profile-center {
+      flex: 1;
+      padding: 0 40px;
+    }
+
+    .profile-center h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .profile-center p {
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+    .profile-right {
+      text-align: center;
+    }
+
+    .company-logo {
+      width: 60px;
+      margin-bottom: 8px;
+    }
+
+    /* Projects */
+    .project-section {
+      padding: 60px;
+      background-color: #111;
+    }
+
+    .project-section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .project-section p {
+      color: #bbb;
     }
   </style>
 </head>
 <body>
-  <section id="landing">
-    <div class="content visible">
-      <!-- Optional: Landing text or nothing, just the background image -->
-    </div>
-    <div class="scroll-indicator" onclick="document.getElementById('details').scrollIntoView({ behavior: 'smooth' })">
-      &#8675;
-    </div>
-  </section>
+  <div class="cover" id="cover"></div>
 
-  <section id="details">
-    <div class="content" id="details-content">
-      <h2>MR.SHADOW_ELITE</h2>
-      <p>Data Analyst | Civil Engineer<br>SQL | Python | Excel | Data Visualization</p>
-    </div>
-  </section>
+  <div class="intro-section fade-section" id="intro">
+    <img src="images/ARAVIND.jpg" alt="Profile" />
+    <h1>Aravind Prabhakar A (Mr.Shadow_Elite)</h1>
+    <p>He/Him | Data Analyst | Penetration Tester | Cybersecurity Enthusiast and Learner<br />SQL | Python | C Programming | PySpark</p>
+  </div>
 
-  <section id="final">
-    <div class="content" id="final-content">
-      <h3>Aravind Prabhakar A</h3>
-      <p>Cybersecurity Enthusiast and Learner<br>DATA SPEAKS, I LISTEN — AND PROTECT</p>
+  <div class="about-section fade-section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I am passionate about cybersecurity and data analytics. I strive to protect what data speaks by listening and defending against vulnerabilities.
+      Eager learner and explorer of real-world solutions.
+    </p>
+  </div>
+
+  <div class="banner-layout" id="bannerLayout">
+    <div class="profile-left">
+      <img src="images/ARAVIND.jpg" alt="Profile Small" />
     </div>
-  </section>
+    <div class="profile-center">
+      <h2>Aravind Prabhakar A (Mr.Shadow_Elite) ✅</h2>
+      <p>He/Him</p>
+      <p>Data Analyst | Penetration Tester | Cybersecurity Enthusiast and Learner<br />SQL | Python | C Programming | PySpark</p>
+    </div>
+    <div class="profile-right">
+      <img src="images/dark-associates-logo.png" class="company-logo" alt="Company Logo" />
+      <p>D'ARK ASSOCIATES</p>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h2>Projects</h2>
+    <p>Coming soon: Security tools, analytics dashboards, and machine learning projects.</p>
+  </div>
 
   <script>
-    function revealOnScroll(id) {
-      const elem = document.getElementById(id);
-      const rect = elem.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        elem.classList.add('visible');
-      }
-    }
-
     window.addEventListener('scroll', () => {
-      revealOnScroll('details-content');
-      revealOnScroll('final-content');
+      const intro = document.getElementById('intro');
+      const about = document.getElementById('about');
+      const banner = document.getElementById('bannerLayout');
+      const cover = document.getElementById('cover');
+
+      if (intro.getBoundingClientRect().top < window.innerHeight - 100) {
+        intro.classList.add('show');
+      }
+
+      if (about.getBoundingClientRect().top < window.innerHeight - 100) {
+        about.classList.add('show');
+        cover.classList.add('shrink');
+      }
+
+      if (banner.getBoundingClientRect().top < window.innerHeight - 100) {
+        banner.classList.add('show');
+      }
     });
   </script>
 </body>
