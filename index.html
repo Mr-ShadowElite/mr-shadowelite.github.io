@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MR.SHADOW_ELITE - Portfolio</title>
   <style>
     * {
@@ -16,80 +16,75 @@
       background-color: #000;
       color: white;
       font-family: Arial, sans-serif;
+      height: 100%;
+      overflow-x: hidden;
     }
 
+    /* Cover section with only background image */
     .cover {
       background: url('images/cover%20pic.png') no-repeat center center;
       background-size: cover;
       height: 100vh;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 40px 60px;
-      z-index: 1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
       transition: all 0.5s ease;
-      position: relative;
-    }
-
-    body.scrolled .cover {
-      height: 300px;
-      padding: 20px 40px;
-    }
-
-    .intro-left {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-      z-index: 3;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 30px;
     }
 
-    .intro-left img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #007acc;
-      margin-bottom: 20px;
+    /* Shrinked cover becomes a small banner */
+    .cover.shrink {
+      height: 80px;
+      background-position: left center;
+      background-size: contain;
+      padding: 10px 40px;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      border-bottom: 1px solid #007acc;
+      z-index: 20;
     }
 
-    .intro-left h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-
-    .intro-left p {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .tagline {
-      font-size: 1em;
-      font-weight: bold;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
-      max-width: 90%;
-      margin: auto auto 20px auto;
-      border-radius: 8px;
-      text-align: center;
-      z-index: 3;
-    }
-
+    /* Scroll arrow */
     .scroll-down {
-      font-size: 2em;
+      font-size: 2.5em;
       color: white;
       cursor: pointer;
-      text-align: center;
+      user-select: none;
+      transition: transform 0.3s ease;
+      animation: bounce 2s infinite;
+      text-shadow: 0 0 5px #007acc;
     }
 
+    .scroll-down:hover {
+      transform: translateY(10px);
+      color: #00aaff;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    /* Main content starts below the fixed cover */
     .main-content {
       padding-top: 100vh;
       position: relative;
-      z-index: 2;
-      background-color: black;
+      z-index: 1;
+      background-color: #000;
+      min-height: 100vh;
     }
 
+    /* Container with fade-in effect */
     .container {
       display: flex;
       flex-direction: row;
@@ -99,6 +94,8 @@
       opacity: 0;
       transform: translateY(50px);
       transition: opacity 0.8s ease, transform 0.8s ease;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .container.show {
@@ -117,12 +114,14 @@
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #007acc;
+      display: block;
+      margin-bottom: 15px;
     }
 
     .left h2 {
       font-size: 1.5em;
-      margin-top: 15px;
       margin-bottom: 10px;
+      color: #007acc;
     }
 
     .left p {
@@ -142,17 +141,20 @@
     .right h3 {
       font-size: 1.4em;
       margin-bottom: 10px;
+      color: #00aaff;
     }
 
     .right p {
       font-size: 1em;
       line-height: 1.6;
       color: #eee;
+      margin-bottom: 15px;
     }
 
     .contact a {
       text-decoration: none;
       color: #1da1f2;
+      word-break: break-word;
     }
 
     .button {
@@ -163,30 +165,35 @@
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #005f99;
     }
 
     @media (max-width: 768px) {
-      .cover {
-        padding: 30px;
-        justify-content: center;
-      }
-
-      .intro-left, .container {
-        width: 100%;
-        text-align: center;
-        align-items: center;
-      }
-
-      .intro-left {
-        align-items: center;
-      }
-
       .container {
         flex-direction: column;
+        padding: 30px 20px;
+        gap: 30px;
       }
 
       .left {
+        width: 100%;
         text-align: center;
+      }
+
+      .left img {
+        margin: 0 auto 15px auto;
+      }
+
+      .right {
+        padding: 20px;
+      }
+
+      .cover.shrink {
+        padding: 10px 20px;
       }
     }
   </style>
@@ -194,19 +201,7 @@
 <body>
 
   <div class="cover" id="cover">
-    <div class="intro-left">
-      <img src="images/ARAVIND.jpg" alt="Profile Photo">
-      <h2>Aravind Prabhakar A</h2>
-      <p><strong>Data Analyst | Penetration Tester<br>
-        Cybersecurity Enthusiast and Learner</strong><br>
-        SQL | Python | C Programming | PySpark
-      </p>
-    </div>
-    <div class="tagline">
-      Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills. Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision to data-driven problem-solving.<br>
-      <em>DATA SPEAKS, I LISTEN — AND PROTECT<br>— MR.SHADOW_ELITE</em>
-    </div>
-    <div class="scroll-down" onclick="document.getElementById('profile-container').scrollIntoView({ behavior: 'smooth' })">&#8675;</div>
+    <div class="scroll-down" title="Scroll Down" onclick="document.getElementById('profile-container').scrollIntoView({ behavior: 'smooth' })">&#8675;</div>
   </div>
 
   <div class="main-content">
@@ -227,11 +222,11 @@
         <p class="contact">
           📍 Kerala, India<br>
           📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
-          🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
+          🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
 
         <h3>Cover Letter</h3>
-        <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button">View My Cover Letter</a>
+        <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button" rel="noopener noreferrer">View My Cover Letter</a>
       </div>
     </div>
   </div>
@@ -241,14 +236,26 @@
     const cover = document.getElementById('cover');
     if (window.scrollY > 100) {
       document.body.classList.add('scrolled');
+      cover.classList.add('shrink');
     } else {
       document.body.classList.remove('scrolled');
+      cover.classList.remove('shrink');
     }
 
     const container = document.getElementById('profile-container');
     const revealPoint = 100;
     const containerTop = container.getBoundingClientRect().top;
 
+    if (containerTop < window.innerHeight - revealPoint) {
+      container.classList.add('show');
+    }
+  });
+
+  // Optionally, reveal content if already scrolled on page load
+  window.addEventListener('load', () => {
+    const container = document.getElementById('profile-container');
+    const revealPoint = 100;
+    const containerTop = container.getBoundingClientRect().top;
     if (containerTop < window.innerHeight - revealPoint) {
       container.classList.add('show');
     }
