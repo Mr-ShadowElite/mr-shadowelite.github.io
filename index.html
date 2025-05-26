@@ -11,182 +11,147 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
-      color: #fff;
-      min-height: 200vh;
-      overflow-x: hidden;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
     }
 
     .hero {
-      background: url('598c6f5c-dda6-41fa-95cf-d7df20be6de5.png') no-repeat center center;
-      background-size: cover;
+      position: relative;
       height: 100vh;
+      width: 100%;
+      background: url('images/cover pic.png') no-repeat center center/cover;
+      transition: height 0.6s ease;
       display: flex;
+      flex-direction: row;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
+      justify-content: space-between;
+      padding: 60px;
+      color: white;
     }
 
-    .hero h1 {
-      color: #00ffff;
-      font-size: 3em;
+    .hero.shrink {
+      height: 120px;
+      padding: 20px 40px;
+    }
+
+    .hero-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-left img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00ccff;
+      transition: all 0.3s ease;
+    }
+
+    .hero-left h2 {
+      font-size: 1.8em;
       margin-bottom: 10px;
     }
 
-    .hero h2 {
-      color: #00cccc;
-      font-size: 1.5em;
+    .hero-left p {
+      font-size: 1em;
+      line-height: 1.4;
+      color: #eee;
     }
 
-    .container {
+    .hero-text-bottom {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 800px;
+      background-color: rgba(0,0,0,0.6);
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 1em;
+      color: #ddd;
+      text-align: center;
+    }
+
+    .scroll-down-arrow {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translate(-50%, 0);
+      }
+      50% {
+        transform: translate(-50%, 10px);
+      }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #111;
+      color: white;
+      padding: 15px 40px;
       display: flex;
-      flex-direction: row;
-      padding: 60px;
-      align-items: flex-start;
-      gap: 40px;
+      justify-content: flex-end;
+      gap: 30px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .navbar.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.2s ease;
+    }
+
+    .navbar a:hover {
+      color: #00ccff;
+    }
+
+    .main-content {
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: all 0.6s ease;
+      padding: 60px;
     }
 
-    .container.show {
+    .main-content.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .left {
-      width: 300px;
-      text-align: left;
-    }
-
-    .left img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #00ffff;
-    }
-
-    .left h2 {
-      font-size: 1.5em;
-      margin-top: 15px;
-      margin-bottom: 10px;
-    }
-
-    .left p {
-      font-size: 0.95em;
-      line-height: 1.5;
-      color: #ddd;
-    }
-
-    .right {
-      flex: 1;
-      background: #111;
-      padding: 30px;
+    section {
+      background: white;
+      padding: 40px;
+      margin-bottom: 30px;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
-    .right h3 {
-      font-size: 1.4em;
-      margin-bottom: 10px;
-      color: #00ffff;
-    }
-
-    .right p {
-      font-size: 1em;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    .contact a {
-      text-decoration: none;
-      color: #00ffff;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #00ffff;
-      color: #000;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #00cccc;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .left, .right {
-        width: 100%;
-      }
-
-      .left {
-        text-align: center;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Hero Cover Section -->
-  <div class="hero">
-    <h1>DATA SPEAKS, I LISTEN — AND PROTECT</h1>
-    <h2>— MR.SHADOW_ELITE</h2>
-  </div>
-
-  <!-- Profile & Info Container -->
-  <div class="container" id="profile-container">
-    <div class="left">
-      <img src="images/ARAVIND.jpg" alt="Profile Photo">
-      <h2>Aravind Prabhakar A</h2>
-      <p><strong>Data Analyst | Penetration Tester<br>
-      Cybersecurity Enthusiast and Learner</strong><br>
-      SQL | Python | C Programming | PySpark</p>
-    </div>
-
-    <div class="right">
-      <h3>About Me</h3>
-      <p>
-        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.
-        Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
-        to data-driven problem-solving. Actively looking for a Data Analyst role.
-      </p>
-      <p class="contact">
-        📍 Kerala, India<br>
-        📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
-        🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
-      </p>
-
-      <h3>Cover Letter</h3>
-      <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button">View My Cover Letter</a>
-    </div>
-  </div>
-
-  <script>
-    const container = document.getElementById('profile-container');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY > window.innerHeight / 2) {
-        container.classList.add('show');
-      } else {
-        container.classList.remove('show');
-      }
-    });
-  </script>
-
-</body>
-</html>
-
+    section h3 {
+      font-
