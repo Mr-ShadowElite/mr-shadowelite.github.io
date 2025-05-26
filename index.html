@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MR.SHADOW_ELITE - Portfolio</title>
+  <title>Scroll Switch Portfolio</title>
   <style>
     * {
       margin: 0;
@@ -15,6 +15,7 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       color: #333;
+      min-height: 150vh; /* Enough height to allow scrolling */
     }
 
     .cover {
@@ -29,6 +30,7 @@
       padding: 40px;
       align-items: flex-start;
       gap: 40px;
+      transition: opacity 0.5s ease;
     }
 
     .left {
@@ -111,8 +113,41 @@
   <!-- Full Cover Banner -->
   <div class="cover"></div>
 
-  <!-- Profile & Info -->
-  <div class="container">
+  <!-- Profile & Info Container -->
+  <div class="container" id="profile-container">
+    <!-- Content will be inserted here by JS -->
+  </div>
+
+<script>
+  // Data for two versions:
+  const version1 = `
+    <div class="left">
+      <img src="images/ARAVIND.jpg" alt="Profile Photo">
+      <h2>Aravind Prabhakar A</h2>
+      <p><strong>Data Analyst | Penetration Tester<br>
+      Cybersecurity Enthusiast and Learner</strong><br>
+      SQL | Python | C Programming | PySpark</p>
+    </div>
+
+    <div class="right">
+      <h3>About Me</h3>
+      <p>
+        Data Enthusiast with 4+ years of Civil Engineering experience and strong analytical skills.
+        Proficient in SQL, Python, Excel, and data visualization tools. I bring engineering precision
+        to data-driven problem-solving. Actively looking for a Data Analyst role.
+      </p>
+      <p class="contact">
+        📍 Kerala, India<br>
+        📧 <a href="mailto:aravindprabhakar_a@hotmail.com">aravindprabhakar_a@hotmail.com</a><br>
+        🔗 <a href="https://www.linkedin.com/in/aravind-prabhakar-a-mse/" target="_blank">LinkedIn</a>
+      </p>
+
+      <h3>Cover Letter</h3>
+      <a href="https://drive.google.com/file/d/1sSw80g8MsbqOmpCHh5TC7T8WAh6_OyLG/view?usp=sharing" target="_blank" class="button">View My Cover Letter</a>
+    </div>
+  `;
+
+  const version2 = `
     <div class="left">
       <img src="images/ARAVIND.jpg" alt="Profile Photo">
       <h2>MR.SHADOW_ELITE</h2>
@@ -136,7 +171,34 @@
       <h3>Cover Letter</h3>
       <a href="#" target="_blank" class="button">View My Cover Letter</a>
     </div>
-  </div>
+  `;
+
+  const container = document.getElementById('profile-container');
+
+  // Start with version1:
+  container.innerHTML = version1;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if(scrollY > 100) {
+      if(container.innerHTML !== version2) {
+        container.style.opacity = 0;
+        setTimeout(() => {
+          container.innerHTML = version2;
+          container.style.opacity = 1;
+        }, 300);
+      }
+    } else {
+      if(container.innerHTML !== version1) {
+        container.style.opacity = 0;
+        setTimeout(() => {
+          container.innerHTML = version1;
+          container.style.opacity = 1;
+        }, 300);
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
